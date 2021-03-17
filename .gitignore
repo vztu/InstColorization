@@ -1,0 +1,7 @@
+*__pycache__*
+.idea
+.ipy*
+train_data/
+logs/
+checkpoints/
+checkpoints.zip

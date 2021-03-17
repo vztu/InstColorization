@@ -1,7 +1,7 @@
 from os.path import join, isfile, isdir
 from os import listdir
 import os
-os.environ["CUDA_VISIBLE_DEVICES"] = "0"
+os.environ["CUDA_VISIBLE_DEVICES"] = "1"
 from argparse import ArgumentParser
 
 import detectron2
@@ -19,12 +19,18 @@ from detectron2.config import get_cfg
 import torch
 from tqdm import tqdm
 
+from torch.utils.cpp_extension import CUDA_HOME
+if CUDA_HOME is None:
+    pass
+
+print('get mask rcnn...')
 cfg = get_cfg()
 cfg.merge_from_file(model_zoo.get_config_file("COCO-InstanceSegmentation/mask_rcnn_X_101_32x8d_FPN_3x.yaml"))
 cfg.MODEL.ROI_HEADS.SCORE_THRESH_TEST = 0.7
 cfg.MODEL.WEIGHTS = model_zoo.get_checkpoint_url("COCO-InstanceSegmentation/mask_rcnn_X_101_32x8d_FPN_3x.yaml")
 predictor = DefaultPredictor(cfg)
 
+print('start extracting...')
 parser = ArgumentParser()
 parser.add_argument("--test_img_dir", type=str, default='example', help='testing images folder')
 parser.add_argument('--filter_no_obj', action='store_true')
