@@ -31,8 +31,8 @@ sh scripts/prepare_cocostuff.sh
 
 ### Your own dataset
 
-1. 
-2. If you want to train on your dataset, you should change the dataset path in scripts/prepare_train_box.sh's L1 and in scripts/train.sh's L1. (Changed)
+1. Copy `old_photo/data/DIV2K_train_HR.zip` to `./train_data` then unzip.
+2. If you want to train on your dataset, you should change the dataset path in scripts/prepare_train_box.sh's L1 and in scripts/train.sh's L1. (Already changed)
 
 ## Pretrained Model
 1. Download from google drive
