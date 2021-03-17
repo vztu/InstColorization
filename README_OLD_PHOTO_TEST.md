@@ -6,15 +6,21 @@ cd InstColorization
 git checkout old_photo_test
 ```
 2. Install [conda](https://www.anaconda.com/).
-3. Install all the dependencies
+3. ~~Install all the dependencies~~
 ```sh
 conda env create --file env.yml
 ```
-4. Switch to the conda environment
+3. Use our old photo env:
 ```sh
-conda activate instacolorization
+conda activate old_photo
 ```
-5. Install other dependencies
+
+4. Switch to the conda environment
+```diff
+- conda activate instacolorization
++ conda activate old_photo
+```
+5. Install other dependencies (modify the detectron2 version refering [here](https://github.com/facebookresearch/detectron2/blob/master/INSTALL.md#install-pre-built-detectron2-linux-only), here I have changed to CUDA=11.0 and torch=1.7)
 ```sh
 sh scripts/install.sh
 ```
