@@ -53,3 +53,16 @@ Please follow the command below to predict all the bounding boxes fo the images 
 sh scripts/prepare_train_box.sh
 ```
 All the prediction results would save in `${DATASET_DIR}_bbox` folder.
+
+## Training
+Simply run the following command
+```sh
+sh scripts/train.sh
+```
+To view training results and loss plots, run `visdom -port 8098` and click the URL \url{http://localhost:8098}.
+
+This is a 3 stage training process.
+
+1. We would start to train our full image colorization branch based on the [siggraph_retrained's pretrained weight](https://github.com/richzhang/colorization-pytorch).
+2. We would use the full image colorization branch's weight as our instance colorization branch's pretrained weight.
+3. Finally, we would train the fusion module.

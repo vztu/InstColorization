@@ -11,6 +11,7 @@ from tqdm import trange, tqdm
 from fusion_dataset import *
 from util import util
 import os
+os.environ["CUDA_VISIBLE_DEVICES"]="0"
 
 if __name__ == '__main__':
     opt = TrainOptions().parse()
