@@ -6,3 +6,4 @@ logs/
 checkpoints/
 checkpoints.zip
 example_bbox/
+results/

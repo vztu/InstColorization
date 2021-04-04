@@ -37,7 +37,7 @@ sh scripts/prepare_cocostuff.sh
 
 ### Your own dataset
 
-1. Copy `old_photo/data/DIV2K_train_HR.zip` to `./train_data` then unzip.
+1. Copy `old_photo/data/DIV2K_train_HR.zip` to `./train_data` then `unzip`.
 2. If you want to train on your dataset, you should change the dataset path in scripts/prepare_train_box.sh's L1 and in scripts/train.sh's L1. (Already changed)
 
 ## Pretrained Model
@@ -66,3 +66,13 @@ This is a 3 stage training process.
 1. We would start to train our full image colorization branch based on the [siggraph_retrained's pretrained weight](https://github.com/richzhang/colorization-pytorch).
 2. We would use the full image colorization branch's weight as our instance colorization branch's pretrained weight.
 3. Finally, we would train the fusion module.
+
+## Testing the Instance-aware Image Colorization model
+1. Our model's weight would place in `checkpoints/${DATASET_DIR}_mask`.
+2. Change the checkpoint's path in [test_fusion.py's L38](test_fusion.py#L38) from `coco_finetuned_mask_256_ffs` to `${DATASET_DIR}_mask`
+3. Please follow the command below to colorize all the images in `test_folder` foler based on the weight placed in `${DATASET_DIR}_mask`.
+
+    ```
+python test_fusion.py --name test_fusion --sample_p 1.0 --model fusion --fineSize 256 --test_img_dir train_data/DIV2K_resize_val_HR  --results_img_dir results/DIV2K_resize_val_HR
+    ```
+    All the colorized results would save in `results` folder.

@@ -1,4 +1,4 @@
-pip install --user -U torch==1.5 torchvision==0.6 -f https://download.pytorch.org/whl/cu101/torch_stable.html
+# pip install --user -U torch==1.5 torchvision==0.6 -f https://download.pytorch.org/whl/cu101/torch_stable.html
 pip install --user cython pyyaml==5.1
 pip install --user -U 'git+https://github.com/cocodataset/cocoapi.git#subdirectory=PythonAPI'
 pip install --user dominate==2.4.0

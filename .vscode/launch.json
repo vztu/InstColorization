@@ -1,0 +1,16 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Python: Current File",
+            "type": "python",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal"
+            "args": ["--stage", "fusion", "--name", "div2k_resize_train_HR_mask", "--sample_p", "1.0", "--niter", "10", "--niter_decay", "20", "--lr", "0.00005", "--model", "train", "--load_model", "--display_ncols", "4", "--fineSize", "256", "--batch_size", "4", "--display_freq", "500", "--print_freq", "500", "--train_img_dir", "train_data/DIV2K_resize_train_HR"]
+        }
+    ]
+}
